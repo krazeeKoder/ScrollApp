@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HFv-eZ-Jos">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ofp-bC-9Sa">
+                                <rect key="frame" x="280" y="550" width="39" height="37"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="Eal-NT-JXv"/>
+                                    <constraint firstAttribute="height" constant="37" id="Jhp-VY-xBt"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.037536777952179468" green="1" blue="0.012545997037658019" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="clickToChangePage:" destination="BYZ-38-t0r" eventType="valueChanged" id="R4M-g6-h7r"/>
+                                    <action selector="clickToChangePage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z1F-oR-ngd"/>
+                                </connections>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeL-ZU-ORy">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="1xZ-w3-7G6"/>
+                                    <constraint firstAttribute="width" constant="609" id="bSN-oY-7Q5"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1xZ-w3-7G6"/>
+                                        <exclude reference="bSN-oY-7Q5"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="NeL-ZU-ORy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="DaO-3Y-I26"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NeL-ZU-ORy" secondAttribute="bottom" id="FW1-qJ-Rby"/>
+                            <constraint firstItem="ofp-bC-9Sa" firstAttribute="centerX" secondItem="NeL-ZU-ORy" secondAttribute="centerX" id="HxW-57-fAe"/>
+                            <constraint firstItem="ofp-bC-9Sa" firstAttribute="top" secondItem="NeL-ZU-ORy" secondAttribute="bottom" constant="-50" id="VH1-1h-QTU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NeL-ZU-ORy" secondAttribute="trailing" id="aJ1-1b-6ew"/>
+                            <constraint firstItem="NeL-ZU-ORy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fQd-MQ-pZV"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rHL-57-H4V" appends="YES" id="YX9-j1-KW0"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="r2m-UL-8Q4"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="NeL-ZU-ORy" id="Y5S-a9-SLu"/>
+                        <outlet property="pageController" destination="ofp-bC-9Sa" id="VbA-d5-uo3"/>
+                        <outlet property="tapGestureRecognizer" destination="rHL-57-H4V" id="3m1-t2-OFb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rHL-57-H4V">
+                    <connections>
+                        <action selector="enterDetailView:" destination="BYZ-38-t0r" id="umo-KV-okB"/>
+                        <segue destination="4mX-9m-scM" kind="show" identifier="DetailView" id="i7O-NY-nKA"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1057" y="437"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="fTr-PC-fR2">
+            <objects>
+                <viewController id="4mX-9m-scM" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yut-Fh-53v"/>
+                        <viewControllerLayoutGuide type="bottom" id="6eD-nD-XAs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LeW-rW-gaG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xRS-05-1cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1787" y="437"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hnI-bm-LaM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HFv-eZ-Jos" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oTV-CH-gFy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lnO-Yu-xRO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bo4-BY-Gal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="437"/>
+        </scene>
+    </scenes>
+</document>
